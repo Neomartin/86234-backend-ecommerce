@@ -52,9 +52,10 @@ const userSchema = new Schema({
   image: {
     type: String,
   },
-  // pets: [
-  //   { type: String }
-  // ],
+  active: {
+    type: Boolean,
+    default: true
+  }
   // address: {
   //     street: { type: String },
   //     city: { type: String },

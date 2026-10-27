@@ -15,7 +15,7 @@ router.get("/products", getProducts);
 // Obtener un producto específico por su ID
 router.get("/products/:id", getProductById);
 // Crear un nuevo producto
-router.post("/products", createProduct);
+router.post("/products",  createProduct);
 // Actualizar un producto específico por su ID
 
 
