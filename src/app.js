@@ -2,6 +2,7 @@
 import express from "express";
 import productRoutes from "./routes/product.routes.js";
 import userRoutes from "./routes/user.routes.js";
+import orderRoutes from "./routes/order.routes.js";
 import cors from "cors";
 
 // Inicializar la aplicación Express
@@ -15,7 +16,6 @@ app.use( cors({
 // Middleware para parsear el body de las solicitudes como JSON
 app.use(   express.json()    );
 
-app.use(productRoutes);  // Endpoint para las rutas de productos
-app.use(userRoutes);  // Endpoint para las rutas de usuarios
+app.use( [ productRoutes, userRoutes, orderRoutes ] )
 
 export default app;

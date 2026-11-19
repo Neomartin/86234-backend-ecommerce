@@ -126,7 +126,7 @@ async function login(req, res) {
 
 
     // Para la que data original del usuario no pueda ser adulterada, vamos a crear un token de autenticación (JWT)
-    const token = jwt.sign(usuario.toObject(), SECRET, { expiresIn: "10s", algorithm: "HS256" })
+    const token = jwt.sign(usuario.toObject(), SECRET, { expiresIn: "24h", algorithm: "HS256" })
 
     // Podríamos guardar el token actual en la base de datos asociado al usuario si queremos llevar un control de sesiones activas.
     // TODO: Enviar el token a través de coookies

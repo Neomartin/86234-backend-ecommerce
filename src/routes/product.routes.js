@@ -10,6 +10,9 @@ import {
 
 import { authenticate, isAdmin } from "../middleware/auth.js";
 
+import upload from "../middleware/upload.js";
+// import { uploadSingleImage } from "../middleware/upload.js";
+
 const router = Router();
 
 // Obtener todos los productos
@@ -23,10 +26,12 @@ router.get("/products/:id", getProductById);
 
 
 // Crear un nuevo producto
-router.post("/products", authenticate, isAdmin, createProduct);
+// uploadSingleImage recibe la imagen opcional en el campo "image" (form-data), max 5MB, JPG/PNG/WEBP
+// #CRAMOS PRODUCTO
+router.post("/products", authenticate, isAdmin, upload, createProduct);
 // Actualizar un producto específico por su ID
 
-router.put("/products/:id", authenticate, isAdmin, updateProduct); 
+router.put("/products/:id", authenticate, isAdmin, upload, updateProduct); 
 // Eliminar un producto específico por su ID
 
 router.delete("/products/:id", authenticate, isAdmin, deleteProduct);
